@@ -1,5 +1,6 @@
 import {useState} from "react";
-import OtpInput from "./otp-input";
+import OtpInput from "./OtpInput";
+
 
 const PhoneOtpForm = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
