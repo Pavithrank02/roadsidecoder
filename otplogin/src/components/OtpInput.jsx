@@ -1,23 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react'
+/* eslint-disable react/prop-types */
+import {useEffect, useRef, useState} from "react";
 
-const OtpInput = ({ length, onOtpSubmit }) => {
-
-  const [otp, setOtp] = useState(new Array(length).fill(""))
-  const inputRefs = useRef([])
+const OtpInput = ({length = 4, onOtpSubmit = () => {}}) => {
+  const [otp, setOtp] = useState(new Array(length).fill(""));
+  const inputRefs = useRef([]);
 
   useEffect(() => {
-    if(inputRefs.current[0]){
-      inputRefs.current[0].focus()
+    if (inputRefs.current[0]) {
+      inputRefs.current[0].focus();
     }
-  })
+  }, []);
 
-  const handleChange=(i, e) => {
+  const handleChange = (index, e) => {
     const value = e.target.value;
     if (isNaN(value)) return;
 
     const newOtp = [...otp];
     // allow only one input
-    newOtp[i] = value.substring(value.length - 1);
+    newOtp[index] = value.substring(value.length - 1);
     setOtp(newOtp);
 
     // submit trigger
@@ -25,47 +25,50 @@ const OtpInput = ({ length, onOtpSubmit }) => {
     if (combinedOtp.length === length) onOtpSubmit(combinedOtp);
 
     // Move to next input if current field is filled
-    if (value && i < length - 1 && inputRefs.current[i + 1]) {
-      inputRefs.current[i + 1].focus();
+    if (value && index < length - 1 && inputRefs.current[index + 1]) {
+      inputRefs.current[index + 1].focus();
     }
   };
-  const handleClick= (i) => {
-    inputRefs.current[i].setSelectionRange(1, 1);
+
+  const handleClick = (index) => {
+    inputRefs.current[index].setSelectionRange(1, 1);
 
     // optional
-    if (i > 0 && !otp[i - 1]) {
+    if (index > 0 && !otp[index - 1]) {
       inputRefs.current[otp.indexOf("")].focus();
     }
-  }
-  const handleKeyDown= (i,e) => {
+  };
+
+  const handleKeyDown = (index, e) => {
     if (
       e.key === "Backspace" &&
-      !otp[i] &&
-      i > 0 &&
-      inputRefs.current[i - 1]
+      !otp[index] &&
+      index > 0 &&
+      inputRefs.current[index - 1]
     ) {
       // Move focus to the previous input field on backspace
-      inputRefs.current[i - 1].focus();
+      inputRefs.current[index - 1].focus();
     }
-  }
+  };
+
   return (
     <div>
-      {otp.map((val, i) => {
+      {otp.map((value, index) => {
         return (
           <input
-            key={i}
-            type='text'
-            ref={(input) => inputRefs.current[i] = input}
-            value={val}
-            onChange={(e) => handleChange(i, e)}
-            onClick={(e) => handleClick(i)}
-            onKeyDown={(e) => handleKeyDown(i, e)}
-            className='otpInput'
+            key={index}
+            type="text"
+            ref={(input) => (inputRefs.current[index] = input)}
+            value={value}
+            onChange={(e) => handleChange(index, e)}
+            onClick={() => handleClick(index)}
+            onKeyDown={(e) => handleKeyDown(index, e)}
+            className="otpInput"
           />
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default OtpInput
+export default OtpInput;
