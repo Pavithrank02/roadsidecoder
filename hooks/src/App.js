@@ -1,37 +1,14 @@
+import React from 'react'
+import HookUseState from './components/UseState'
+import HookUseEffect from './components/HookUseEffect'
 
-import { useState } from 'react';
-import './App.css';
-
-function App() {
-
-  const [count, setCount] = useState({
-    num: 1,
-    id: 'abcd'
-  })
-const handleAdd =() => {
-  setCount((pre) =>  {
-    return {
-      ...pre,
-      num: pre.num + 1
-    }
-  })
-}
-const handleSub =() => {
-  setCount((pre) =>  {
-    return {
-      ...pre,
-      num: pre.num - 1
-    }
-  })
-}
+const App = () => {
   return (
-    <div className="App">
-      <button onClick={handleSub}>-</button>
-      <span>{count.num}</span>
-      <button onClick={handleAdd}>+</button>
-    
-    </div>
-  );
+    <div>
+      {/* <HookUseState /> */}
+      <HookUseEffect />
+      </div>
+  )
 }
 
-export default App;
+export default App
