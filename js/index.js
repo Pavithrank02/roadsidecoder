@@ -10,7 +10,7 @@ Array.prototype.myMap =  function (cb) {
 }
 
 //filter polyfill
-
+//filter polyfill
 Array.prototype.myMap =  function (cb) {
   let temp= [];
 
