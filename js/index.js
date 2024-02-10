@@ -45,14 +45,29 @@ Array.prototype.myMap =  function (cb) {
 
 //Coding question 2
 
+// const user = {
+//   name: 'hon',
+//   logMessage(){
+//     console.log(this.name)
+//   }
+
+// }
+
+// setTimeout(() => {
+//   user.logMessage()
+// }, 1000)
+
+//Coding question 3
+
 const user = {
-  name: 'hon',
-  logMessage(){
-    console.log(this.name)
+    name: 'hon',
+    logMessage(){
+      return `hello, ${this.name}`
+    },
+    logMessages : () => {
+      return `goodbye, ${this.name}`
+    },
   }
 
-}
-
-setTimeout(() => {
-  user.logMessage()
-}, 1000)
+  console.log(user.logMessage())
+  console.log(user.logMessages())
