@@ -26,17 +26,19 @@ Array.prototype.myMap =  function (cb) {
 
 // this keyword
 
-// Coding question
+// Coding question 1
 
 function make() {
   return{
 
     name: "hohn",
-    ref: this
+    ref() {
+      return this
+    } 
   }
 
 }
 
 let user = make()
 
-console.log(user.ref.name)
+console.log(user.ref().name)
