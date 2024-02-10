@@ -20,3 +20,23 @@ Array.prototype.myMap =  function (cb) {
   }
   return temp
 }
+
+// ijmplicit binding: the binding which can be performed with dot notation
+//explicit binding is performed with call, apply and bind
+
+// this keyword
+
+// Coding question
+
+function make() {
+  return{
+
+    name: "hohn",
+    ref: this
+  }
+
+}
+
+let user = make()
+
+console.log(user.ref.name)
