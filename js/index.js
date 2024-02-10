@@ -28,17 +28,31 @@ Array.prototype.myMap =  function (cb) {
 
 // Coding question 1
 
-function make() {
-  return{
+// function make() {
+//   return{
 
-    name: "hohn",
-    ref() {
-      return this
-    } 
+//     name: "hohn",
+//     ref() {
+//       return this
+//     } 
+//   }
+
+// }
+
+// let user = make()
+
+// console.log(user.ref().name)
+
+//Coding question 2
+
+const user = {
+  name: 'hon',
+  logMessage(){
+    console.log(this.name)
   }
 
 }
 
-let user = make()
-
-console.log(user.ref().name)
+setTimeout(() => {
+  user.logMessage()
+}, 1000)
