@@ -6,9 +6,12 @@ const colors = require('colors')
 const userRoutes = require('./routes/userRoutes')
 const PORT = process.env.PORT || 5000
 
-const app = express();
 dotenv.config()
+
 connectDb()
+const app = express();
+
+app.use(express.json())
 app.get("/", (req, res) => {
   res.send("API is running")
 });
