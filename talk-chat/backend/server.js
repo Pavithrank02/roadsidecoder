@@ -3,7 +3,9 @@ const dotenv = require("dotenv")
 const { chats } = require("./data/data");
 const connectDb = require("./config/db");
 const colors = require('colors')
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
+const { notFound, errorHandler } = require("./middlewares/backend/middleware/errorMiddleware");
+
 const PORT = process.env.PORT || 5000
 
 dotenv.config()
@@ -26,4 +28,6 @@ app.get('/api/chat/:id', (req, res) => {
 
 })
 app.use('/api/user', userRoutes)
+app.use(notFound)
+app.use(errorHandler)
 app.listen(PORT, console.log(`server is running in ${PORT}`.yellow.bold))
