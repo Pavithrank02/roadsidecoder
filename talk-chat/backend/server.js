@@ -3,7 +3,7 @@ const dotenv = require("dotenv")
 const { chats } = require("./data/data");
 const connectDb = require("./config/db");
 const colors = require('colors')
-
+const userRoutes = require('./routes/userRoutes')
 const PORT = process.env.PORT || 5000
 
 const app = express();
@@ -22,4 +22,5 @@ app.get('/api/chat/:id', (req, res) => {
   res.send(singleChat)
 
 })
+app.use('/api/user', userRoutes)
 app.listen(PORT, console.log(`server is running in ${PORT}`.yellow.bold))

@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"))
     if (!userInfo) {
-      history.push('/chats')
+      history('/chats')
     }
   }, [history])
   return (
