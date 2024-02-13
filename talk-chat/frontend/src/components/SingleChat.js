@@ -14,6 +14,7 @@ import animationData from "../animations/typing.json";
 import io from "socket.io-client";
 import { ChatState } from "../Context/ChatProvider";
 import ProfileModal from "./misc/ProfileModal";
+import UpdateGroupChatModal from "./misc/UpdateGroupChatModal";
 const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 var socket, selectedChatCompare;
 
@@ -187,11 +188,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               ) : (
                 <>
                   {selectedChat.chatName.toUpperCase()}
-                  {/* <UpdateGroupChatModal
+                  <UpdateGroupChatModal
                     fetchMessages={fetchMessages}
                     fetchAgain={fetchAgain}
                     setFetchAgain={setFetchAgain}
-                  /> */}
+                  />
                 </>
               ))}
           </Text>
