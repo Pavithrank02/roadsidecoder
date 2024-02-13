@@ -17,7 +17,7 @@ import axios from "axios";
 import { useState } from "react";
 // import UserBadgeItem from "../userAvatar/UserBadgeItem";
 import UserListItem from "../userAvatar/UserListItem";
-import { ChatState } from "../../context/ChatProvider";
+import { ChatState } from "../../Context/ChatProvider";
 import ChatLoading from "../ChatLoading";
 import UserBadgeItem from "../userAvatar/UserBadgeItem";
 

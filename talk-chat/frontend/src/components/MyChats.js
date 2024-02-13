@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import { getSender } from "../config/ChatLogics";
 import ChatLoading from "./ChatLoading";
 import { Button } from "@chakra-ui/react";
-import { ChatState } from "../context/ChatProvider";
 import GroupChatModal from "./misc/GroupChatModal";
+import { ChatState } from "../Context/ChatProvider";
 
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();

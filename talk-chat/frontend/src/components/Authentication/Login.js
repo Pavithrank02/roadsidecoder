@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import { ChatState } from "../../context/ChatProvider";
+import { ChatState } from "../../Context/ChatProvider";
 const Login = () => {
   const [show, setShow] = useState(false)
   const [email, setEmail] = useState("")
