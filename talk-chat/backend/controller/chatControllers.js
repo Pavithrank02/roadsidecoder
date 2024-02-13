@@ -1,5 +1,5 @@
 const asyncHandler = require("express-async-handler");
-// const Chat = require("../models/chatModel");
+const Chat = require("../modals/chatModel");
 const User = require("../modals/userModel");
 
 //@description     Create or fetch One to One Chat
@@ -78,6 +78,7 @@ const fetchChats = asyncHandler(async (req, res) => {
 //@route           POST /api/chat/group
 //@access          Protected
 const createGroupChat = asyncHandler(async (req, res) => {
+  console.log(req)
   if (!req.body.users || !req.body.name) {
     return res.status(400).send({ message: "Please Fill all the feilds" });
   }
