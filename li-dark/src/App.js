@@ -10,10 +10,10 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
-      <NavBar />
+        <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
+          <Route path='/abouts' element={<About />} />
           <Route path='/blog' element={<Blog />} />
         </Routes>
       </BrowserRouter>
